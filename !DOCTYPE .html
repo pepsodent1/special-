@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Date</title>
+    <style>
+        body {
+            font-family: 'Arial, sans-serif';
+            text-align: center;
+            margin-top: 50px;
+            background-color: #3498db; /* Blue background */
+            color: #fff; /* White text color */
+            transition: background-color 0.5s ease; /* Add a smooth background color transition */
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #question, #message {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #kittyGif, #waitGif, #thankYouGif, #yayGif {
+            width: 300px;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+
+        #yesButton, #noButton, #dateButton, #thankYouButton, #yayButton, #continueButton {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.5s ease, background-color 0.5s ease; /* Add a smooth transition effect to the buttons */
+            background-color: #fff; /* White background */
+            color: #3498db; /* Blue text color */
+            border: none;
+            outline: none;
+            border-radius: 50px; /* Make the buttons circular for a cloud shape */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        }
+
+        #noButton:hover, #yesButton:hover, #dateButton:hover, #thankYouButton:hover, #yayButton:hover, #continueButton:hover {
+            transform: translate(
+                /* Use random values to set the buttons' position */
+                calc(20vw * Math.random() - 10%), /* Random horizontal position */
+                calc(20vh * Math.random() - 10%)  /* Random vertical position */
+            );
+            background-color: #3498db; /* Change background color on hover for a visual effect */
+            color: #fff; /* Change text color on hover */
+        }
+
+        #calendarContainer, #thankYouContainer, #yayContainer, #pickDateContainer {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #datepicker {
+            font-size: 18px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <!-- First Slide -->
+        <div id="firstSlide">
+            <h2 id="question">Do you want to have an online movie date?</h2>
+            <iframe id="kittyGif" src="https://tenor.com/embed/17387974" frameborder="0" allowfullscreen="true" scrolling="no"></iframe>
+            <button id="yesButton" onclick="showYay()">Yes</button>
+            <button id="noButton" onmouseover="moveNoButton()">No</button>
+        </div>
+
+        <!-- Second Slide -->
+        <div id="yayContainer">
+            <h3 id="message">YEYYY!!! LESSS GOOO!!!</h3>
+            <iframe id="yayGif" src="https://tenor.com/embed/20197086" frameborder="0" allowfullscreen="true" scrolling="no"></iframe>
+            <button id="continueButton" onclick="showPickDate()">Continue</button>
+        </div>
+
+        <!-- Third Slide -->
+        <div id="pickDateContainer">
+            <h3 id="message">Let's pick a date</h3>
+            <input type="text" id="datepicker" placeholder="MM/DD/YYYY" />
+            <button id="dateButton" onclick="confirmDate()">Confirm Date</button>
+            <iframe id="waitGif" src="https://tenor.com/embed/14326223" frameborder="0" allowfullscreen="true" scrolling="no"></iframe>
+        </div>
+
+        <!-- Fourth Slide -->
+        <div id="thankYouContainer">
+            <h3 id="message">Thank You!</h3>
+            <iframe id="thankYouGif" src="https://tenor.com/embed/25990555" frameborder="0" allowfullscreen="true" scrolling="no"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function moveNoButton() {
+            document.getElementById("noButton").style.transform = "translate(" +
+                (20 * Math.random() - 10) + "vw, " +
+                (20 * Math.random() - 10) + "vh)";
+        }
+
+        function showYay() {
+            document.getElementById("firstSlide").style.display = "none";
+            document.getElementById("yayContainer").style.display = "block";
+        }
+
+        function showPickDate() {
+            document.getElementById("yayContainer").style.display = "none";
+            document.getElementById("pickDateContainer").style.display = "block";
+        }
+
+        function confirmDate() {
+            var selectedDate = document.getElementById('datepicker').value;
+            if (selectedDate) {
+                alert('Date confirmed: ' + selectedDate);
+                document.getElementById("pickDateContainer").style.display = "none";
+                document.getElementById("thankYouContainer").style.display = "block";
+            } else {
+                alert('Please enter a date.');
+            }
+        }
+    </script>
+</body>
+</html>
