@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Movie Date</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        
+        h1 {
+            font-size: 2em;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>🍿 Welcome to the Online Movie Date! 🎥</h1>
+    
+    <button onclick="askForMovieDate()">Ask for a Movie Date</button>
+
+    <script>
+        function askForMovieDate() {
+            var response = confirm("Would you like to have an online movie date?");
+            if (response) {
+                alert("Great! Let's choose the date and enjoy the movie.");
+                // You can add more functionality here, such as showing a calendar or additional options.
+            } else {
+                alert("Maybe next time. Have a wonderful day!");
+            }
+        }
+    </script>
+</body>
+</html>
